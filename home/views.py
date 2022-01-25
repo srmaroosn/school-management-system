@@ -1,9 +1,9 @@
-from email import message
 from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth import  authenticate,login,logout
 from django.shortcuts import redirect, render
 from .forms import *
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def user_login(request):
@@ -31,6 +31,14 @@ def register(request):
             messages.success(request,'Account was created for ' + user)
             return redirect('login')
     return render(request, 'register.html', context={'form':form})
-
+@login_required(login_url='login')
 def home(request):
     return render(request,'home.html')
+
+def User_logout(request):
+    logout(request)
+    return redirect('login')
+
+def library(request):
+    return render(request,'library.html')
+

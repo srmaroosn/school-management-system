@@ -1,12 +1,59 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
 </head>
+
 <body>
-    <h1> Welcome to home page.</h1>
+    {% include 'nav.html'%}
+    {% block content %}
+    <div class="header">
+        <div class="text">
+            <h1>
+                Welcome to School Management System
+            </h1>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <h2>Introduction</h2>
+            <p>Ever since its establishment in 1997, Prasadi Academy has secured a formidable place among Nepal’s
+                reputed groups of +2 with its dedication to the highest educational standards. Prasadi is fully engaged
+                in the communities in which it is located among both public and private academies. Through its
+                curriculum, +2 life, and extracurricular activities, it stimulates students’ critical thinking and
+                heightens their moral sensitivity. It encourages them to be seekers of truth, responsible and
+                knowledgeable citizens of the world facing tough competition posed by the fast-growing advancement of
+                science and technology.</p>
+        </div>
+        <div class="col">
+            <h2>Mission</h2>
+            <p>Prasadi Academy is a unique academic institution dedicated to providing a healthy environment with
+                student- friendly atmosphere. Our mission is to nurture students’ hidden talents and bring them to
+                fruition through constant guidance and supervision. Discipline, constructivism and studiousness with
+                integrated personality development is what we nurture in our students.
+
+                Thus, intellectually and morally equipped students passing out of Prasadi are in an enviable position to
+                take up any challenges, be the pursuit of higher studies abroad or the career goals that life might
+                throw up.</p>
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+
+
+
+
+    {% endblock %}
+
 </body>
+
 </html>
