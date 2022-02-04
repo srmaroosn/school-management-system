@@ -1,0 +1,82 @@
+{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+  box-sizing: border-box;
+}
+/* The Table Attributes */
+table {
+  text-align: center;
+  width: 900px;
+  
+  margin: 20px auto;
+  font-family: sans-serif;
+  border-bottom: 5px solid #009688;
+}
+/* The Attributes that the Head and the Body of the Table Share */
+th,
+td {
+  padding: 10px;
+}
+/* Attributes of the Head of the Body */
+th {
+  background-color: #404040;
+  color: white;
+}
+/* Attributes of Each Cell */
+td {
+  background-color: #eee;
+}
+/*Attributes of Span*/
+span {
+  padding: 5px 10px;
+  margin: 3px;
+  color: white;
+}
+/*Attributes */
+.blue {
+  background-color: #03a9f4;
+}
+.pink {
+  background-color: #e91e63;
+}
+
+    </style>
+</head>
+<body>
+    <table>
+        <!--   The Head of The Table -->
+               <thead>
+                   <tr>
+                       <th>Name Of Books</th>
+                       <th>Author</th>
+                       <th>Date Of Issue</th>
+                       <th>Number of pages</th>
+                       <th>Control</th>
+                   </tr>
+        <!--  End of The Head -->
+               </thead>
+        <!--   The Body of The Table -->
+               <tbody>
+        <!--          First Row -->
+                {% for list in list_book %}
+                   <tr>
+                       <td>{{list.name}}</td>
+                       <td>{{list.author}}</td>
+                       <td>{{list.date_of_borrowed}}</td>
+                       <td>{{list.No_of_pages}}</td>
+                       <td><span class="blue">edit</span><span class="pink" ><a href="{% url 'delete_books' list.id %}">Delete</a></span></td>
+                   </tr>
+                   {% endfor %}
+            </tbody>
+        <!-- End of The Table -->
+           </table>
+</body>
+</html>
+{% endblock %}
