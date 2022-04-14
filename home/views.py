@@ -14,8 +14,12 @@ def user_login(request):
         if user is not None:
             login(request, user)
             return redirect('home')
+           
     else:
+        #messages.error(request,"Wrong info ")
+        
         return render(request,'login.html',context={})
+       
     
 
 
@@ -61,24 +65,31 @@ def add_books(request):
             return redirect('library')
     return render(request, 'add_books.html', context={'book':book})    
 
+
+@login_required(login_url='login')
 def edit_books(request, id):
     book= Book.objects.get(id=id)
     if request.method=="GET":
         book_edit=Book_Entry_Form(instance=book)
-        return render(request, 'edit_books.html', context={'book_form':book_edit})
+        return render(request, 'edit_books.html', context={'book_edit':book_edit})
     else:
         book_edit=Book_Entry_Form(request.POST, instance=book)
         if book_edit.is_valid():
             book_edit.save()
             return redirect('library')
-    return render(request, 'edit_books.html', context={'book_form':book_edit})  
+    return render(request, 'edit_books.html', context={'book_edit':book_edit})  
 
+@login_required(login_url='login')
 def delete_books(request, id ):
     book= Book.objects.get(id=id)
     book.delete()
     return redirect('library')
+
     
+@login_required(login_url='login')
 def list_books(request):
     list_book=Book.objects.all()
     return render(request, 'list_books.html', context={'list_book':list_book})
+
+
     

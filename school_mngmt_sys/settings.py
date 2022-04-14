@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+from tkinter.tix import Tree
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -147,3 +148,10 @@ SITE_ID = 1
 SOCIALACCOUNT_PROVIDERS = {
     
 }
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'vr302916@gmail.com'
+EMAIL_HOST_PASSWORD = 'valentino46@#'
+EMAIL_PORT = 587
+ACCOUNT_EMAIL_VERFICATION = 'none'

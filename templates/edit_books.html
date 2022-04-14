@@ -1,0 +1,46 @@
+
+{% load static %}
+<html lang="en">
+<head>
+<script type="text/javascript" src="https://github.com/rubyeffect/easy_fill/tree/master/lib/easy_fill-0.0.1.min.js"></script>
+  <title>Reach Me</title>
+  <link rel="stylesheet" href="{% static '/css/add_book.css' %}">
+</head>
+
+<body>
+    {% block content %}
+  <div id="container">
+    <!--This is a division tag for body container-->
+    <div id="body_header">
+      <!--This is a division tag for body header-->
+      <h1>BOOK ADD FORM</h1>
+      
+
+    </div>
+    <form action="" method="post">
+        {% csrf_token %}
+      <fieldset>
+        <legend><span class="number">1</span>Your Book details</legend>
+        <label for="name">Name Of Book</label>
+        {{book_edit.name}}
+
+        <label for="mail">Author of Book</label>
+        {{book_edit.author}}
+
+        <label for="tel">Date of Borrowed</label>
+        {{book_edit.date_of_borrowed}}
+
+        <label for="skype_name">Number of pages</label>
+        {{ book_edit.No_of_pages}}
+
+
+      </fieldset>
+
+      {{ book.errors }}
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+{% endblock %}
+</html>
+

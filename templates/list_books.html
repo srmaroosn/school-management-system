@@ -71,7 +71,7 @@ span {
                        <td>{{list.author}}</td>
                        <td>{{list.date_of_borrowed}}</td>
                        <td>{{list.No_of_pages}}</td>
-                       <td><span class="blue">edit</span><span class="pink" ><a href="{% url 'delete_books' list.id %}">Delete</a></span></td>
+                       <td><span class="blue"><a href="{% url 'edit_books' list.id %}">Edit</a></span><span class="pink" ><a href="{% url 'delete_books' list.id %}">Delete</a></span></td>
                    </tr>
                    {% endfor %}
             </tbody>
